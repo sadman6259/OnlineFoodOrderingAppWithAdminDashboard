@@ -1,0 +1,163 @@
+
+<!--nav-->
+  
+<div class="page-wrapper">
+    <header class="header-mobile d-block d-lg-none">
+       <div class="header-mobile__bar">
+           <div class="container-fluid">
+               <div class="header-mobile-inner">
+                   <a class="logo"routerLink="/home">
+                       <img src="assets/images/icon/logo.png" alt="Admin Dashboard" />
+                   </a>
+                   <button class="hamburger hamburger--slider" type="button">
+                       <span class="hamburger-box">
+                           <span class="hamburger-inner"></span>
+                       </span>
+                   </button>
+               </div>
+           </div>
+       </div>
+       <nav class="navbar-sidebar">
+           <ul class="list-unstyled navbar__list">
+               <li class="active has-sub">
+                   <a routerLink="/ordernow">
+                       <i class="fas fa-tachometer-alt"></i>Order Now</a>
+                 
+               </li>
+               <!-- <li routerLinkActive="active">
+                   <a routerLink="/chart">
+                       <i class="fas fa-chart-bar"></i>Charts</a>
+               </li> -->
+               <li routerLinkActive="active">
+                   <a routerLink="/yourorder">
+                       <i class="fas fa-table"></i>Your Orders</a>
+               </li>
+               <li routerLinkActive="active">
+                   <a href="cuslogin" (click)="Logout()">
+                       <i class="fas fa-table"></i>Logout</a>
+               </li>
+            
+             
+             
+              
+           </ul>
+       </nav>
+   </header>
+   <aside class="menu-sidebar d-none d-lg-block" id="sidebar">
+       <div class="logo">
+           <a routerLink="/home">
+               <img src="assets/images/icon/logo.png" alt="Admin Dashboard" />
+           </a>
+       </div>
+       <div class="menu-sidebar__content js-scrollbar1">
+           <nav class="navbar-sidebar">
+               <ul class="list-unstyled navbar__list">
+                   <li class="active has-sub">
+                       <a routerLink="/ordernow">
+                           <i class="fas fa-tachometer-alt"></i>Order Now</a>
+                     
+                   </li>
+                   <!-- <li routerLinkActive="active">
+                       <a routerLink="/chart">
+                           <i class="fas fa-chart-bar"></i>Charts</a>
+                   </li> -->
+                   <li routerLinkActive="active">
+                       <a routerLink="/yourorder">
+                           <i class="fas fa-table"></i>Your Orders</a>
+                   </li>
+                   <li routerLinkActive="active">
+                       <a href="cuslogin" (click)="Logout()">
+                           <i class="fas fa-table"></i>Logout</a>
+                   </li>
+                
+                 
+                 
+                  
+               </ul>
+           </nav>
+       </div>
+   </aside>
+   </div>
+   
+     <header class="header-desktop">
+       <div class="section__content section__content--p30">
+           <div class="container-fluid">
+               <div class="header-wrap">
+                 
+                   <div class="header-button" style="float:right;">
+                     
+                  
+                   
+                   </div>
+               </div>
+           </div>
+       </div>
+   </header>
+   
+  
+  <!--end nav-->
+  
+  <div  style="margin-left: 400px; margin-top: 90px;">
+ 
+  
+  <h2 class="title-1 m-b-25">All Orders</h2>
+  <div class="table-responsive table--no-card m-b-40">
+    <div class="col-sm-5" style="padding-top:20px;padding-bottom:20px;" >  
+        <input class="form-control" type="text" placeholder="Search......." [(ngModel)]="filter">        
+   </div>
+      <table class="table table-borderless table-striped table-earning ">
+          <thead> 
+              <tr>
+                  <th>Order Time</th>
+                  <!-- <th>Order ID</th> 
+                 <th>Order Category</th>
+                   -->
+                  <th>Order Name</th>
+                  <th class="text-right">Price</th>
+                  <th class="text-right">Quantity</th>
+                  <th class="text-right">Total Price</th>
+               
+                  <!-- <th class="text-right">Payment Type</th>
+                  <th class="text-right">Customer Number</th>
+                  <th class="text-right">Customer Address</th> -->
+  
+  
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let o of yourorders |filter:filter| paginate: { itemsPerPage: 6, currentPage: p }">
+  <td >{{o.orderTime}}</td>  
+  <!-- <td>{{o.id}}</td>  
+  <td>{{o.category.name}}</td>
+  -->
+  <td >{{o.menue.name}}</td>
+  <td >{{o.subtotal}}</td>  
+  
+  <td >{{o.quantity}}</td>  
+  <td >
+  {{o.totalPrice}}
+  </td>
+  
+  
+  <!-- <td>
+  {{o.paymentType}}
+  </td>
+  <td>
+  {{o.customer.contactNo}}
+  </td>
+  <td>
+  {{o.customer.address}}
+  </td> -->
+              </tr>
+             
+          </tbody>
+        
+      </table>
+   <!-- <button (click)="Delete20order()">Delete Past 20 order</button>-->   
+      <br/>
+      <ul class="pagination">  
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>  
+        </ul>
+  </div>
+  </div>
+  

@@ -1,0 +1,219 @@
+<!--
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div class="ordermain">
+
+    
+
+    <div class="wrapper fadeInDown mainc">
+    
+      <div id="alertbox" *ngIf="message" class="alert alert-danger text-center " style="width: 40%; font-size: 16px" >{{message}}</div>
+    
+      <div id="formContent">
+        
+       
+        <div class="fadeIn first">
+      
+          <h2>Order Here</h2>
+        </div>
+
+    
+        <form #form="ngForm" ngNativeValidate (submit)="onSubmit(form)">
+          <input type="hidden" class="form-control" id="inputId"name="Id"[value]="service.data.Id">
+          
+          
+          <select name="selectedMenue" id="aantal" class="form-control" [(ngModel)]="selectedMenue" aria-placeholder="Menue">
+            <option *ngFor="let option of options" [value]="option"(ngModelChange)="somethingChanged()">{{option}} </option>
+        </select>        
+        <input type="text" id="quantity" class="fadeIn second"name="quantity" [(ngModel)]="service.data.quantity" placeholder="Quantity">
+          <input type="text" id="Subtotal" class="fadeIn third"name="subtotal" [(ngModel)]="service.data.subtotal" placeholder="Subtotal" readonly>
+          <input type="text" id="totalPrice" class="fadeIn third" name="totalPrice"[(ngModel)]="service.data.totalPrice" placeholder="Total Price" readonly>
+          <label>Payment Method</label>
+          <div class="row" style="margin-left: 20px;">
+            <input style ="margin-top: 2px;" type="radio"  name="payment" value="cash" checked>
+            <label>Cash On Delivery</label>
+          </div>
+          <div class="row" style="margin-left: 20px;">
+
+          <input style ="margin-top: 2px;" type="radio"  name="payment" value="bkash">
+          <label>Bkash</label>
+          </div>
+
+        
+         
+    
+          <input type="submit" class="fadeIn fourth" value="Order">
+        </form>
+    
+     
+        <div id="formFooter">
+          <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+ 
+      </div>
+    </div>
+    
+    
+</div>
+-->
+<!--nav-->
+  
+<div class="page-wrapper">
+  <header class="header-mobile d-block d-lg-none">
+     <div class="header-mobile__bar">
+         <div class="container-fluid">
+             <div class="header-mobile-inner">
+                 <a class="logo"routerLink="/home">
+                     <img src="assets/images/icon/logo.png" alt="Admin Dashboard" />
+                 </a>
+                 <button class="hamburger hamburger--slider" type="button">
+                     <span class="hamburger-box">
+                         <span class="hamburger-inner"></span>
+                     </span>
+                 </button>
+             </div>
+         </div>
+     </div>
+     <nav class="navbar-sidebar">
+         <ul class="list-unstyled navbar__list">
+             <li class="active has-sub">
+                 <a routerLink="/ordernow">
+                     <i class="fas fa-tachometer-alt"></i>Order Now</a>
+               
+             </li>
+             <!-- <li routerLinkActive="active">
+                 <a routerLink="/chart">
+                     <i class="fas fa-chart-bar"></i>Charts</a>
+             </li> -->
+             <li >
+                 <a routerLink="/yourorder">
+                     <i class="fas fa-table"></i>Your Orders</a>
+             </li>
+             <li >
+                 <a href="cuslogin" (click)="Logout()">
+                     <i class="fas fa-table"></i>Logout</a>
+             </li>
+          
+           
+           
+            
+         </ul>
+     </nav>
+ </header>
+ <aside class="menu-sidebar d-none d-lg-block" id="sidebar">
+     <div class="logo">
+         <a routerLink="/home">
+             <img src="assets/images/icon/logo.png" alt="Admin Dashboard" />
+         </a>
+     </div>
+     <div class="menu-sidebar__content js-scrollbar1">
+         <nav class="navbar-sidebar">
+             <ul class="list-unstyled navbar__list">
+                 <li class="active has-sub">
+                     <a routerLink="/ordernow">
+                         <i class="fas fa-tachometer-alt"></i>Order Now</a>
+                   
+                 </li>
+                 <!-- <li routerLinkActive="active">
+                     <a routerLink="/chart">
+                         <i class="fas fa-chart-bar"></i>Charts</a>
+                 </li> -->
+                 <li>
+                     <a routerLink="/yourorder">
+                         <i class="fas fa-table"></i>Your Orders</a>
+                 </li>
+                 <li>
+                     <a href="cuslogin" (click)="Logout()">
+                         <i class="fas fa-table"></i>Logout</a>
+                 </li>
+              
+               
+               
+                
+             </ul>
+         </nav>
+     </div>
+ </aside>
+ </div>
+ 
+   <header class="header-desktop">
+     <div class="section__content section__content--p30">
+         <div class="container-fluid">
+             <div class="header-wrap">
+               
+                 <div class="header-button" style="float:right;">
+                   
+          
+ 
+                 
+                 </div>
+             </div>
+         </div>
+     </div>
+ </header>
+ 
+
+<!--end nav-->
+
+<div  style="margin-left: 400px; margin-top: 90px;">
+<h4 class="dispaly-4">Order Food</h4>
+<hr>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+
+  <input type="hidden"  name="Id" #OrderItemID="ngModel" [(ngModel)]="formData.Id">
+  
+  <div class="form-group">
+    <label>Menue</label>
+    <select name="MenueId" #ItemID="ngModel" [(ngModel)]="formData.MenueId" class="form-control" (change)="updatePrice($event.target)"
+    [class.is-invalid]="!isValid && formData.MenueId==0">
+      <option value="0">-Select-</option>
+      <option *ngFor="let item of itemList" value="{{item.id}}">{{item.name}}</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Price</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">$</div>
+        </div>
+        <input name="subtotal" #subtotal="ngModel" [(ngModel)]="formData.subtotal" class="form-control" readonly>
+      </div>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Quantity</label>
+      <input name="quantity" #quantity="ngModel" [(ngModel)]="formData.quantity" class="form-control"
+      (keyup)="updateTotal()" [class.is-invalid]="!isValid && formData.quantity==0">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Total</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">$</div>
+      </div>
+      <input name="totalPrice" #totalPrice="ngModel" [(ngModel)]="formData.totalPrice" class="form-control" readonly>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Payment Method</label>
+    <br/>
+    <input type="radio" name="paymentType" [value]="1" [(ngModel)]="formData.paymenttype"/> Cash On Delivery
+    <br/>
+    <input type="radio" name="paymentType" [value]="2" [(ngModel)]="formData.paymenttype"/> Bkash
+    
+
+   
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+  </div>
+</form>
+
+<br/>
+<br/>
+
+
+</div>

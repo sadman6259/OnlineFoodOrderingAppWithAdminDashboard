@@ -1,0 +1,47 @@
+<h3 class="">Enter Menue Here </h3>
+<br/>
+<form #form="ngForm" ngNativeValidate (submit)="OnSubmit(form)">
+    <input type="hidden" name="Id" [value]="service.data.Id">
+    <div class="form-row">
+      <div class="col">
+          <input type="text" name="CustomerId" class="form-control" placeholder="Customer Name"[(ngModel)]="service.data.CustomerId"required >
+
+      </div>
+      <div class="col">
+         		
+        <input type="text" name="MenueId" class="form-control" placeholder="Menue Name"[(ngModel)]="service.data.MenueId"required >
+
+         </div>
+    </div>
+    <br/>
+    <div class="form-row">
+        <div class="col-7">
+          <input type="text" name="Quantity" class="form-control" placeholder="Quantity"[(ngModel)]="service.data.Quantity"required>
+        </div>
+        <div class="col">
+          <input type="text" name="SubTotal" class="form-control" placeholder="Sub Total"[(ngModel)]="service.data.subtotal"required>
+        </div>
+        <div class="col">
+          <input type="text" name="TotalPrice" class="form-control" placeholder="Total Price"[(ngModel)]="service.data.TotalPrice"required>
+        </div>
+      </div>
+      <br/>
+      <div class="form-row">
+        
+        <div class="col">
+            <select id="inputPayment" name="PaymentType"class="form-control"[(ngModel)]="service.data.paymenttype"required>
+                <option selected>Payment Type</option>
+                <option>Bkash</option>
+                <option>Cash On Delivery</option>
+    
+              </select>          
+            </div>
+        <div class="col">
+            <input  type="date" name="OrderTime" id="date-picker-example" class="form-control"[(ngModel)]="service.data.OrderTime"required>
+         </div>
+      </div>
+      <br/>
+      <button type="button"type="submit" class="btn btn-outline-primary">Submit</button>
+
+  </form>
+

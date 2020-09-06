@@ -1,0 +1,38 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+<div class="wrapper fadeInDown mainc">
+
+  <div id="alertbox" *ngIf="message" class="alert alert-danger text-center " style="width: 40%; font-size: 16px" >{{message}}</div>
+
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <!--<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="SIGN IN " />-->
+      <h2>SIGN UP</h2>
+    </div>
+
+    <!-- Login Form -->
+    <form #form="ngForm" ngNativeValidate (submit)="onSubmit(form)">
+      <input type="hidden" class="form-control" id="inputId"name="Id"[value]="service.formData.Id">
+
+      <input type="text" id="login" class="fadeIn second" name="Name"[(ngModel)]="service.formData.Name" placeholder="Username">
+      <input type="password" id="password" class="fadeIn second"name="Password" [(ngModel)]="service.formData.Password" placeholder="Password">
+      <input type="text" id="address" class="fadeIn third"name="Address" [(ngModel)]="service.formData.Address" placeholder="Address">
+      <input type="text" id="contactno" class="fadeIn third" name="ContactNo"[(ngModel)]="service.formData.ContactNo" placeholder="Contact No">
+
+
+      <input type="submit" class="fadeIn fourth" value="Sign Up">
+    </form>
+
+    <!-- 
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+-->
+  </div>
+</div>
+

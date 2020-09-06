@@ -1,0 +1,56 @@
+<div class="row">
+<br/>
+<div class="col-md-3">
+        <h2 class="title-1 m-b-25"> Create Category</h2>
+
+<form #form="ngForm" ngNativeValidate (submit)="onSubmit(form)">
+    <div class="form-row">
+            <input type="hidden" class="form-control" id="inputId"name="Id"[value]="service.formData.Id">
+
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Name</label>
+          <input type="text" class="form-control" id="inputname"name="Name" placeholder="Name"[(ngModel)]="service.formData.Name"required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4"> MenueId</label>
+          <input type="text" class="form-control"name="MenueId" id="inputmenueid" placeholder="MenueId"[(ngModel)]="service.formData.MenueId"required>
+        </div>
+      </div>
+     
+    
+          <br/>
+      <button type="submit"  class="btn btn-primary">Submit</button>
+</form>
+</div>
+<div class="col-md-6">
+    <h2 class="title-1 m-b-25">Categories</h2>
+    <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
+        <div class="au-card-inner">
+            <div class="table-responsive">
+                <table class="table table-top-countries">
+                    <thead>
+                        <tr>
+                            <th>Category Id</th>
+                            <th>Category Name</th>
+                            <th>Menue Name</th>
+                         
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of categories">
+    <td>{{c.id}}</td>  
+    <td>{{c.name}}</td>  
+
+    <td>{{c.menue.name}}</td> 
+  
+                        </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

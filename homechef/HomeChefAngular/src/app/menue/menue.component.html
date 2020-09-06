@@ -1,0 +1,76 @@
+<div class="row">
+<br/>
+<div class="col-md-3">
+        <h2 class="title-1 m-b-25"> Create Menues</h2>
+
+<form #form="ngForm" ngNativeValidate (submit)="onSubmit(form)">
+    <div class="form-row">
+            <input type="hidden" class="form-control" id="inputId"name="Id"[(ngModel)]="service.formData.id">
+
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Name</label>
+          <input type="text" class="form-control" id="inputname"name="Name" placeholder="Name"[(ngModel)]="service.formData.name"required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4"> Price</label>
+
+          <input type="text" class="form-control" #Price="ngModel" name="Price"placeholder="Price" id="inputmenueprice" [(ngModel)]="service.formData.price"required>
+        </div>
+      </div>
+      <div class="form-row">
+
+      <div class="form-group col-md-12">
+        <label for="inputPassword4"> Details</label>
+        <input type="text" class="form-control"name="Details" id="inputmenuedetails" placeholder="Details"[(ngModel)]="service.formData.details"required>
+      </div>
+</div>
+<button type="submit"  class="btn btn-primary">Submit</button>
+
+</form>
+</div>
+
+</div>
+
+<br/>
+<br/>
+<div class="row">
+    <h2 class="title-1 m-b-25">Menues</h2>
+    <div class=" table--no-card m-b-40">
+        <div class="col-sm-10" style="padding-top:20px;padding-bottom:20px;" >  
+            <input class="form-control" type="text" placeholder="Search......." [(ngModel)]="filter">        
+       </div>
+        <div class="au-card-inner">
+            <div class="table-responsive">
+                <table class="table table-borderless table-striped table-earning">
+                    <thead>
+                        <tr>
+                            
+                            <th>Menue Name</th>
+                            <th>Price</th>
+                            <th>Details</th>
+                            <th>Action</th>
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let m of menues |filter:filter| paginate: { itemsPerPage: 5, currentPage: p }">
+     
+    <td (click)="populateForm(m)">{{m.name}}</td>  
+    <td (click)="populateForm(m)">{{m.price}}</td>  
+
+    <td (click)="populateForm(m)">{{m.details}}</td> 
+    <td><button (click)="onDelete(m.id)" class="btn btn-sm btn-outline-danger">X</button></td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+            <br/>
+            <ul class="pagination">  
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>  
+                </ul>
+        </div>
+    </div>
+</div>

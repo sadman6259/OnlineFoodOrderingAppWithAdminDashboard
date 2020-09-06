@@ -1,0 +1,23 @@
+<!--Notification.-->
+
+<!--<div class="layout-topbar">
+    <div class="fluid-container">
+        <div class="row">
+            <div class="col-md-10">
+                <div style="color:white" class="col-md-3">Angular 7 SignalR Notifications</div>
+            </div>
+        </div>
+    </div>
+  </div>
+-->
+  <p-toast [style]="{marginTop: '50px'}"></p-toast>
+  <!-- end Notification.-->
+
+<div class="row">
+    <div *ngIf="_router.url != '/login' && _router.url != '/registration' && _router.url != '/cuslogin' && _router.url != '/ordernow' && _router.url != '/notificationmodal'"  class="col-md-3">
+        <app-navigation> </app-navigation>
+    </div>
+<div class="col-md-9">
+</div>
+<router-outlet></router-outlet>
+</div>

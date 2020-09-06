@@ -1,0 +1,152 @@
+ 
+  <div class="page-wrapper">
+ <header class="header-mobile d-block d-lg-none">
+    <div class="header-mobile__bar">
+        <div class="container-fluid">
+            <div class="header-mobile-inner">
+                <a class="logo"routerLink="/home">
+                    <img src="assets/images/icon/logo.png" alt="Admin Dashboard" />
+                </a>
+                <button class="hamburger hamburger--slider" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar-sidebar">
+        <ul class="list-unstyled navbar__list">
+            <li class="active has-sub">
+                <a routerLink="/home">
+                    <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+              
+            </li>
+            <!-- <li routerLinkActive="active">
+                <a routerLink="/chart">
+                    <i class="fas fa-chart-bar"></i>Charts</a>
+            </li> -->
+            <li routerLinkActive="active">
+                <a routerLink="/earningbyitems">
+                    <i class="fas fa-table"></i>All Orders</a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/createtbl">
+                    <i class="fas fa-table"></i>Menues</a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/discussion">
+                    <i class="far fa-check-square"></i>Disscussion</a>
+            </li>
+            <li>
+                <a href="#"(click)="AdminLogout()">
+                    <i class="fas fa-calendar-alt"></i>Logout</a>
+            </li>
+          
+          
+           
+        </ul>
+    </nav>
+</header>
+<aside class="menu-sidebar d-none d-lg-block" id="sidebar">
+    <div class="logo">
+        <a routerLink="/home">
+            <img src="assets/images/icon/logo.png" alt="Admin Dashboard" />
+        </a>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+                <li class="active has-sub">
+                    <a routerLink="/home">
+                        <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                  
+                </li>
+                <!-- <li routerLinkActive="active">
+                    <a routerLink="/chart">
+                        <i class="fas fa-chart-bar"></i>Charts</a>
+                </li> -->
+                <li routerLinkActive="active">
+                    <a routerLink="/earningbyitems">
+                        <i class="fas fa-table"></i>All Orders</a>
+                </li>
+                <li routerLinkActive="active">
+                    <a routerLink="/createtbl">
+                        <i class="fas fa-table"></i>Menues</a>
+                </li>
+                <li routerLinkActive="active">
+                    <a routerLink="/customersreport">
+                        <i class="fas fa-table"></i>Customers Report</a>
+                </li>
+                <li routerLinkActive="active">
+                    <a routerLink="/discussion">
+                        <i class="far fa-check-square"></i>Disscussion</a>
+                </li>
+                <li>
+                    <a href="#"(click)="AdminLogout()">
+                        <i class="fas fa-calendar-alt"></i>Logout</a>
+                </li>
+              
+              
+               
+            </ul>
+        </nav>
+    </div>
+</aside>
+</div>
+
+  <header class="header-desktop">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="header-wrap">
+              
+                <div class="header-button" style="float:right;">
+                    <div class="noti-wrap">
+                      
+                   
+                        <div class="noti__item js-item-menu"data-toggle="modal" data-target="#exampleModalCenter"(click)="SetUnreadNotification()"style="float:right;">
+                            <i class="zmdi zmdi-notifications"></i>
+                            <span class="quantity">{{notificationcount}}</span>
+                         
+                        </div>
+                    </div>
+               
+
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Notification</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-notificationmodal></app-notificationmodal>
+        </div>
+        <div class="modal-footer">
+          <a href="notification">
+           View All</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--
+<body>
+<div class="sidebar">
+    <a class="active" href="#home">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+
+  </div>
+  </body>
+  -->

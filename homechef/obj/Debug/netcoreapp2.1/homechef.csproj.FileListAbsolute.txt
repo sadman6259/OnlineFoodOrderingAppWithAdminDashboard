@@ -1,0 +1,14 @@
+C:\Users\DELL\source\repos\homechef\homechef\bin\Debug\netcoreapp2.1\homechef.deps.json
+C:\Users\DELL\source\repos\homechef\homechef\bin\Debug\netcoreapp2.1\homechef.runtimeconfig.json
+C:\Users\DELL\source\repos\homechef\homechef\bin\Debug\netcoreapp2.1\homechef.runtimeconfig.dev.json
+C:\Users\DELL\source\repos\homechef\homechef\bin\Debug\netcoreapp2.1\homechef.dll
+C:\Users\DELL\source\repos\homechef\homechef\bin\Debug\netcoreapp2.1\homechef.pdb
+C:\Users\DELL\source\repos\homechef\homechef\obj\Debug\netcoreapp2.1\homechef.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\homechef\homechef\obj\Debug\netcoreapp2.1\homechef.RazorAssemblyInfo.cache
+C:\Users\DELL\source\repos\homechef\homechef\obj\Debug\netcoreapp2.1\homechef.RazorAssemblyInfo.cs
+C:\Users\DELL\source\repos\homechef\homechef\obj\Debug\netcoreapp2.1\homechef.AssemblyInfoInputs.cache
+C:\Users\DELL\source\repos\homechef\homechef\obj\Debug\netcoreapp2.1\homechef.AssemblyInfo.cs
+C:\Users\DELL\source\repos\homechef\homechef\obj\Debug\netcoreapp2.1\homechef.RazorTargetAssemblyInfo.cache
+C:\Users\DELL\source\repos\homechef\homechef\obj\Debug\netcoreapp2.1\homechef.dll
+C:\Users\DELL\source\repos\homechef\homechef\obj\Debug\netcoreapp2.1\homechef.pdb
+C:\Users\DELL\source\repos\homechef\homechef\obj\Debug\netcoreapp2.1\homechef.csprojAssemblyReference.cache

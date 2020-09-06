@@ -1,0 +1,62 @@
+
+  <h2 class="title-1 m-b-25">Earnings By Items</h2>
+  <div class="table-responsive table--no-card m-b-40">
+    <div class="col-sm-5" style="padding-top:20px;padding-bottom:20px;" >  
+        <input class="form-control" type="text" placeholder="Search......." [(ngModel)]="filter">        
+   </div>
+      <table class="table table-borderless table-striped table-earning ">
+          <thead> 
+              <tr>
+                  <th>Order Time</th>
+                  <!-- <th>Order ID</th> 
+                 <th>Order Category</th>
+                   -->
+                  <th>Order Name</th>
+                  <th class="text-right">Price</th>
+                  <th class="text-right">Quantity</th>
+                  <th class="text-right">Total Price</th>
+                  <th class="text-right">Customer</th>
+                  <!-- <th class="text-right">Payment Type</th>
+                  <th class="text-right">Customer Number</th>
+                  <th class="text-right">Customer Address</th> -->
+
+
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let o of orders |filter:filter| paginate: { itemsPerPage: 6, currentPage: p }">
+<td >{{o.orderTime}}</td>  
+<!-- <td>{{o.id}}</td>  
+<td>{{o.category.name}}</td>
+ -->
+ <td >{{o.menue.name}}</td>
+<td >{{o.subtotal}}</td>  
+
+<td >{{o.quantity}}</td>  
+<td >
+{{o.totalPrice}}
+</td>
+<td >
+   {{o.customer.name}}
+</td>
+
+<!-- <td>
+{{o.paymentType}}
+</td>
+<td>
+{{o.customer.contactNo}}
+</td>
+<td>
+{{o.customer.address}}
+</td> -->
+              </tr>
+             
+          </tbody>
+        
+      </table>
+   <!-- <button (click)="Delete20order()">Delete Past 20 order</button>-->   
+      <br/>
+      <ul class="pagination">  
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>  
+        </ul>
+  </div>
